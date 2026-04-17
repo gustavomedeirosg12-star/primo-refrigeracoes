@@ -101,36 +101,36 @@ export default function App() {
       </a>
 
       {/* HEADER */}
-      <header className="fixed top-[3px] left-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-primary/5 transition-all">
+      <header className="fixed top-[3px] left-0 w-full z-40 bg-primary/95 text-white backdrop-blur-md border-b border-white/10 transition-all shadow-lg">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-secondary to-accent flex items-center justify-center text-white shadow-lg">
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-secondary to-accent flex items-center justify-center text-white shadow-lg border border-white/20">
                <ThermometerSnowflake size={22} strokeWidth={2.5} />
             </div>
-            <span className="font-display font-medium text-xl tracking-tight text-primary">Primo</span>
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1 ml-4 bg-background border border-primary/5 rounded-full text-[10px] font-mono uppercase tracking-widest text-primary/70">
+            <span className="font-display font-medium text-xl tracking-tight text-white">Primo</span>
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1 ml-4 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono uppercase tracking-widest text-white/70">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               Bem-estar online
             </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#servicos" className="text-sm font-medium hover:text-secondary transition-colors">Serviços</a>
-            <a href="#sobre" className="text-sm font-medium hover:text-secondary transition-colors">Sobre</a>
-            <a href="#atendimento" className="text-sm font-medium hover:text-secondary transition-colors">Área de atendimento</a>
-            <a href="#contato" className="text-sm font-medium hover:text-secondary transition-colors">Contato</a>
+            <a href="#servicos" className="text-sm font-medium text-white/80 hover:text-accent transition-colors">Serviços</a>
+            <a href="#sobre" className="text-sm font-medium text-white/80 hover:text-accent transition-colors">Sobre</a>
+            <a href="#atendimento" className="text-sm font-medium text-white/80 hover:text-accent transition-colors">Área de atendimento</a>
+            <a href="#contato" className="text-sm font-medium text-white/80 hover:text-accent transition-colors">Contato</a>
           </nav>
 
           <a 
             href={WP_LINK} 
             target="_blank" 
             rel="noreferrer"
-            className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-full bg-secondary text-white font-medium text-sm hover:scale-105 hover:shadow-lg transition-all duration-300"
+            className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-full bg-secondary text-white font-medium text-sm hover:scale-105 hover:bg-accent transition-all duration-300 shadow-[0_0_15px_rgba(0,153,255,0.4)]"
           >
             Solicitar orçamento
           </a>
 
-          <button className="md:hidden p-2 text-primary" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -141,14 +141,14 @@ export default function App() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-white border-b border-primary/5 px-6 overflow-hidden"
+              className="md:hidden bg-primary border-b border-white/10 px-6 overflow-hidden"
             >
               <div className="flex flex-col gap-4 py-6">
-                <a href="#servicos" onClick={() => setIsMenuOpen(false)} className="text-base font-medium">Serviços</a>
-                <a href="#sobre" onClick={() => setIsMenuOpen(false)} className="text-base font-medium">Sobre</a>
-                <a href="#atendimento" onClick={() => setIsMenuOpen(false)} className="text-base font-medium">Área de atendimento</a>
-                <a href="#contato" onClick={() => setIsMenuOpen(false)} className="text-base font-medium">Contato</a>
-                <a href={WP_LINK} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center h-12 rounded-lg bg-secondary text-white font-medium w-full mt-2 hover:scale-105 transition-transform">
+                <a href="#servicos" onClick={() => setIsMenuOpen(false)} className="text-base font-medium text-white/80">Serviços</a>
+                <a href="#sobre" onClick={() => setIsMenuOpen(false)} className="text-base font-medium text-white/80">Sobre</a>
+                <a href="#atendimento" onClick={() => setIsMenuOpen(false)} className="text-base font-medium text-white/80">Área de atendimento</a>
+                <a href="#contato" onClick={() => setIsMenuOpen(false)} className="text-base font-medium text-white/80">Contato</a>
+                <a href={WP_LINK} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center h-12 rounded-lg bg-secondary text-white font-medium w-full mt-2 hover:scale-105 hover:bg-accent transition-all shadow-[0_0_15px_rgba(0,153,255,0.4)]">
                   (34) 9243-4778 / WhatsApp
                 </a>
               </div>
@@ -231,13 +231,14 @@ export default function App() {
 
                 {/* BLANK PLACEHOLDER REQUESTED BY USER */}
                 <motion.div 
-                  className="w-[90%] h-[90%] relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-gray-50/80 to-white border-2 border-dashed border-secondary/20 flex flex-col items-center justify-center p-8 animate-float z-20"
+                  className="w-[90%] h-[90%] relative rounded-[2rem] overflow-hidden bg-primary border-2 border-dashed border-accent/30 flex flex-col items-center justify-center p-8 animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)]"
                 >
-                  <div className="w-24 h-24 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-full flex items-center justify-center text-secondary/40 mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:text-secondary group-hover:rotate-12 border border-primary/5">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099FF08_1px,transparent_1px),linear-gradient(to_bottom,#0099FF08_1px,transparent_1px)] bg-[size:2rem_2rem]" />
+                  <div className="w-24 h-24 bg-white/10 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.2)] rounded-full flex items-center justify-center text-accent mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:text-white group-hover:rotate-12 border border-white/10 relative z-10">
                     <Camera size={40} strokeWidth={1.5} />
                   </div>
-                  <strong className="font-display text-2xl md:text-3xl text-primary font-bold mb-3 tracking-tight">Sua Foto Aqui</strong>
-                  <p className="text-primary/50 font-sans text-sm md:text-base text-center max-w-[280px] leading-relaxed">
+                  <strong className="font-display text-2xl md:text-3xl text-white font-bold mb-3 tracking-tight relative z-10">Sua Foto Aqui</strong>
+                  <p className="text-white/60 font-sans text-sm md:text-base text-center max-w-[280px] leading-relaxed relative z-10">
                     Mostre a sua equipe em campo, sua frota ou o dono da empresa.
                   </p>
                 </motion.div>
@@ -470,29 +471,33 @@ export default function App() {
       {/* ÁREA DE ATENDIMENTO */}
       <section id="atendimento" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-background rounded-[2rem] p-8 md:p-16 border border-primary/5 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-            <FadeIn className="flex-1 w-full">
-              <div className="w-16 h-16 bg-white rounded-xl shadow-sm flex items-center justify-center text-secondary mb-8">
+          <div className="bg-primary rounded-[2rem] p-8 md:p-16 border border-white/5 flex flex-col md:flex-row items-center gap-12 lg:gap-20 relative overflow-hidden text-white shadow-2xl">
+            {/* Dark Blue Luxury Grid Background */}
+            <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full pointer-events-none" />
+
+            <FadeIn className="flex-1 w-full relative z-10">
+              <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl shadow-sm flex items-center justify-center text-accent mb-8">
                 <MapPin size={32} strokeWidth={1.5} />
               </div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mb-6">Área de Cobertura</h2>
-              <p className="font-sans text-lg text-text/70 mb-8 max-w-md">
-                Atuamos em toda a região de <strong className="text-primary font-bold">Uberlândia</strong>, oferecendo deslocamento ágil para garantir a climatização quando você mais precisa.
+              <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-6">Área de Cobertura</h2>
+              <p className="font-sans text-lg text-white/80 mb-8 max-w-md">
+                Atuamos em toda a região de <strong className="text-white font-bold">Uberlândia</strong>, oferecendo deslocamento ágil para garantir a climatização quando você mais precisa.
               </p>
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-primary/10 rounded-full font-medium text-primary shadow-sm">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full font-medium text-white shadow-sm backdrop-blur-md">
                 <CheckCircle2 size={20} className="text-accent" /> Serviço Local Prioritário
               </div>
             </FadeIn>
-            <FadeIn delay={0.2} className="flex-1 w-full relative">
-               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_40px_-15px_rgba(10,25,47,0.15)] border border-primary/10 bg-white p-4">
+            <FadeIn delay={0.2} className="flex-1 w-full relative z-10">
+               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-white/10 p-4 bg-white/5 backdrop-blur-md">
                    {/* Abstract Map UI representation */}
-                   <div className="w-full h-full bg-background rounded-xl overflow-hidden relative">
-                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099FF20_1px,transparent_1px),linear-gradient(to_bottom,#0099FF20_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+                   <div className="w-full h-full bg-[#071324] rounded-xl overflow-hidden relative">
+                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099FF15_1px,transparent_1px),linear-gradient(to_bottom,#0099FF15_1px,transparent_1px)] bg-[size:3rem_3rem]" />
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                          <div className="w-24 h-24 bg-accent/20 rounded-full animate-ping absolute" />
                          <div className="w-12 h-12 bg-accent/40 rounded-full absolute" />
-                         <MapPin size={36} className="text-secondary relative z-10 drop-shadow-md" fill="#F4F7F9" />
-                         <span className="font-display font-bold text-primary mt-2 relative z-10 bg-white/80 px-3 py-1 rounded backdrop-blur-sm border border-primary/10">Uberlândia-MG</span>
+                         <MapPin size={36} className="text-accent relative z-10 drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]" fill="#0A192F" />
+                         <span className="font-display font-bold text-white mt-2 relative z-10 bg-white/10 px-3 py-1 rounded backdrop-blur-md border border-white/20">Uberlândia-MG</span>
                       </div>
                    </div>
                </div>
@@ -589,11 +594,12 @@ export default function App() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-background rounded-3xl p-8 md:p-12 border border-primary/5 shadow-xl shadow-primary/5">
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="bg-primary rounded-3xl p-8 md:p-12 border border-white/5 shadow-2xl shadow-primary/20 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+                <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label htmlFor="nome" className="text-sm font-semibold text-primary">Seu Nome</label>
+                      <label htmlFor="nome" className="text-sm font-semibold text-white/80">Seu Nome</label>
                       <input 
                         id="nome"
                         type="text" 
@@ -601,11 +607,11 @@ export default function App() {
                         value={formData.nome}
                         onChange={(e) => setFormData({...formData, nome: e.target.value})}
                         placeholder="Nome Completo" 
-                        className="w-full h-14 bg-white border border-primary/10 rounded-xl px-4 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all font-sans" 
+                        className="w-full h-14 bg-white/5 border border-white/10 rounded-xl px-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all font-sans text-white placeholder-white/30 backdrop-blur-sm" 
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="telefone" className="text-sm font-semibold text-primary">Telefone / WhatsApp</label>
+                      <label htmlFor="telefone" className="text-sm font-semibold text-white/80">Telefone / WhatsApp</label>
                       <input 
                         id="telefone"
                         type="tel" 
@@ -613,37 +619,40 @@ export default function App() {
                         value={formData.telefone}
                         onChange={(e) => setFormData({...formData, telefone: e.target.value})}
                         placeholder="(00) 00000-0000" 
-                        className="w-full h-14 bg-white border border-primary/10 rounded-xl px-4 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all font-sans" 
+                        className="w-full h-14 bg-white/5 border border-white/10 rounded-xl px-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all font-sans text-white placeholder-white/30 backdrop-blur-sm" 
                       />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="servico" className="text-sm font-semibold text-primary">Serviço Desejado</label>
-                    <select 
-                      id="servico"
-                      value={formData.servico}
-                      onChange={(e) => setFormData({...formData, servico: e.target.value})}
-                      className="w-full h-14 bg-white border border-primary/10 rounded-xl px-4 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all appearance-none font-sans"
-                    >
-                      <option>Manutenção Preventiva</option>
-                      <option>Manutenção Corretiva / Conserto</option>
-                      <option>Instalação de Ar Condicionado</option>
-                      <option>Higienização Completa</option>
-                      <option>Projeto de Refrigeração Comercial</option>
-                      <option>Outros Serviços de Refrigeração</option>
-                    </select>
+                    <label htmlFor="servico" className="text-sm font-semibold text-white/80">Serviço Desejado</label>
+                    <div className="relative">
+                      <select 
+                        id="servico"
+                        value={formData.servico}
+                        onChange={(e) => setFormData({...formData, servico: e.target.value})}
+                        className="w-full h-14 bg-[#0F1D36] border border-white/10 rounded-xl px-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all appearance-none font-sans text-white"
+                      >
+                        <option>Manutenção Preventiva</option>
+                        <option>Manutenção Corretiva / Conserto</option>
+                        <option>Instalação de Ar Condicionado</option>
+                        <option>Higienização Completa</option>
+                        <option>Projeto de Refrigeração Comercial</option>
+                        <option>Outros Serviços de Refrigeração</option>
+                      </select>
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none" size={20} />
+                    </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="mensagem" className="text-sm font-semibold text-primary">Detalhes sobre o problema ou ambiente</label>
+                    <label htmlFor="mensagem" className="text-sm font-semibold text-white/80">Detalhes sobre o problema ou ambiente</label>
                     <textarea 
                       id="mensagem"
                       rows={4} 
                       value={formData.mensagem}
                       onChange={(e) => setFormData({...formData, mensagem: e.target.value})}
                       placeholder="Ex: Sala comercial de 40m², o ar parou de gelar após queda de energia..." 
-                      className="w-full bg-white border border-primary/10 rounded-xl px-4 py-4 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all resize-none font-sans"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none font-sans text-white placeholder-white/30 backdrop-blur-sm"
                     ></textarea>
                   </div>
 
@@ -652,14 +661,14 @@ export default function App() {
                       href={generatedUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full h-14 bg-secondary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-hover transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+                      className="w-full h-14 bg-secondary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-accent transition-all shadow-[0_10px_20px_rgba(0,153,255,0.3)] hover:shadow-[0_15px_30px_rgba(0,153,255,0.5)] hover:-translate-y-1 group"
                     >
                       Solicitar Orçamento no WhatsApp
                       <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </a>
                   ) : (
                     <div 
-                      className="w-full h-14 bg-primary/20 text-text/40 rounded-xl font-bold flex items-center justify-center gap-2 cursor-not-allowed transition-all"
+                      className="w-full h-14 bg-white/5 border border-white/10 text-white/40 rounded-xl font-bold flex items-center justify-center gap-2 cursor-not-allowed transition-all"
                     >
                       Preencha Nome e Telefone
                       <Send size={18} className="opacity-50" />
