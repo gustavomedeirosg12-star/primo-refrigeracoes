@@ -17,7 +17,7 @@ const FadeIn = ({ children, delay = 0, className = "" }: any) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       {children}
@@ -201,7 +201,7 @@ export default function App() {
               </p>
             </div>
 
-            <FadeIn delay={0.5} className="flex flex-col sm:flex-row gap-5 mb-16">
+            <FadeIn delay={0.15} className="flex flex-col sm:flex-row gap-5 mb-16">
               <a href={WP_LINK} target="_blank" rel="noreferrer" className="relative group overflow-hidden inline-flex items-center justify-center gap-3 h-16 px-10 rounded-full bg-secondary text-white font-medium text-lg shadow-[0_15px_30px_rgba(0,90,156,0.25)] hover:shadow-[0_20px_40px_rgba(0,90,156,0.4)] hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
                 <span className="relative z-10 flex items-center gap-2">Agendar Serviço <ArrowRight size={20} /></span>
@@ -211,7 +211,7 @@ export default function App() {
               </a>
             </FadeIn>
             
-            <FadeIn delay={0.6}>
+            <FadeIn delay={0.2}>
               <div className="flex flex-wrap items-center gap-8 pt-8 border-t border-primary/10 text-sm font-medium text-primary/70">
                 <span className="flex items-center gap-2"><CheckCircle2 size={18} className="text-accent" /> Residencial e Comercial</span>
                 <span className="flex items-center gap-2"><CheckCircle2 size={18} className="text-accent" /> Todas as marcas</span>
@@ -221,7 +221,7 @@ export default function App() {
           </div>
 
           <div className="w-full lg:w-[45%]">
-            <FadeIn delay={0.3} className="relative group perspective-1000">
+            <FadeIn delay={0.1} className="relative group perspective-1000">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/30 to-secondary/30 rounded-[3rem] transform rotate-3 scale-105 -z-10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
               
               <div className="relative bg-white/60 backdrop-blur-3xl border text-center border-white/60 rounded-[2.5rem] p-4 shadow-[0_40px_80px_-20px_rgba(0,90,156,0.2)] overflow-visible aspect-[4/5] sm:aspect-square md:aspect-[3/4] xl:aspect-[4/5] flex flex-col justify-center items-center group/img animate-pulse-glow">
