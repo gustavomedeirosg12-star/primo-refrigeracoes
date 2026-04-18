@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 const PHONE = '553492434778';
-const WP_LINK = `https://wa.me/${PHONE}?text=${encodeURIComponent('Olá, David! Acessei o site da Primo Refrigerações e gostaria de solicitar um orçamento.')}`;
+const WP_LINK = `https://wa.me/${PHONE}?text=${encodeURIComponent('Olá, Deivid! Acessei o site da Primo Refrigerações e gostaria de solicitar um orçamento.')}`;
 
 const FadeIn = ({ children, delay = 0, className = "" }: any) => {
   return (
@@ -224,23 +224,27 @@ export default function App() {
             <FadeIn delay={0.1} className="relative group perspective-1000">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/30 to-secondary/30 rounded-[3rem] transform rotate-3 scale-105 -z-10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
               
-              <div className="relative bg-white/60 backdrop-blur-3xl border text-center border-white/60 rounded-[2.5rem] p-4 shadow-[0_40px_80px_-20px_rgba(0,90,156,0.2)] overflow-visible aspect-[4/5] sm:aspect-square md:aspect-[3/4] xl:aspect-[4/5] flex flex-col justify-center items-center group/img animate-pulse-glow">
+              <div className="relative bg-white/60 backdrop-blur-3xl border text-center border-white/60 rounded-[2.5rem] p-4 shadow-[0_40px_80px_-20px_rgba(0,90,156,0.2)] overflow-visible aspect-[9/16] w-full max-w-[360px] mx-auto flex flex-col justify-center items-center group/img animate-pulse-glow">
                 
                 {/* GLASS BORDER */}
                 <div className="absolute inset-0 rounded-[2.5rem] border border-white/40 shadow-[inset_0_0_20px_rgba(255,255,255,0.5)] z-10 pointer-events-none" />
 
-                {/* BLANK PLACEHOLDER REQUESTED BY USER */}
+                {/* PRESENTATION VIDEO INSTEAD OF PLACEHOLDER */}
                 <motion.div 
-                  className="w-[90%] h-[90%] relative rounded-[2rem] overflow-hidden bg-primary border-2 border-dashed border-accent/30 flex flex-col items-center justify-center p-8 animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)]"
+                  className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099FF08_1px,transparent_1px),linear-gradient(to_bottom,#0099FF08_1px,transparent_1px)] bg-[size:2rem_2rem]" />
-                  <div className="w-24 h-24 bg-white/10 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.2)] rounded-full flex items-center justify-center text-accent mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:text-white group-hover:rotate-12 border border-white/10 relative z-10">
-                    <Camera size={40} strokeWidth={1.5} />
-                  </div>
-                  <strong className="font-display text-2xl md:text-3xl text-white font-bold mb-3 tracking-tight relative z-10">Sua Foto Aqui</strong>
-                  <p className="text-white/60 font-sans text-sm md:text-base text-center max-w-[280px] leading-relaxed relative z-10">
-                    Mostre a sua equipe em campo, sua frota ou o dono da empresa.
-                  </p>
+                  <video 
+                    src="/apresentacao.mp4" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover scale-105 group-hover/video:scale-100 transition-transform duration-700"
+                  >
+                    Seu navegador não suporta vídeos.
+                  </video>
+                  {/* Subtle gradient overlay to make video look more premium */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent pointer-events-none" />
                 </motion.div>
 
                 {/* FLOATING TRUST BADGE */}
@@ -402,20 +406,24 @@ export default function App() {
 
             <div ref={galleryRef} className="flex gap-6 w-full overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth hide-scroll px-2">
               {[
-                { id: 1, block: "Climatização", text: "Instalação Split", desc: "Instalação técnica e profissional de equipamentos residenciais e comerciais.", img: "https://images.unsplash.com/photo-1605810731770-07bf10904d6e?auto=format&fit=crop&q=80&w=800" },
-                { id: 2, block: "Saúde", text: "Higienização Profunda", desc: "Sanitização de unidades e filtros, focada no bem-estar e qualidade do ar.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" },
-                { id: 3, block: "Eficiência", text: "Manutenção Preventiva", desc: "Check-up técnico para evitar paradas inesperadas e economizar energia.", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" },
-                { id: 4, block: "Empresarial", text: "Projetos Sob Medida", desc: "Planejamento e refrigeração para ambientes de grande escala.", img: "https://images.unsplash.com/photo-1571781403681-4202daaa44ee?auto=format&fit=crop&q=80&w=800" }
-              ].map((item, i) => (
-                <div key={item.id} style={{ animationDelay: `${i * 100}ms` }} className="shrink-0 w-[85vw] sm:w-[500px] snap-center animate-[fadeIn_0.5s_ease-out_forwards]">
-                  <div className="relative rounded-2xl overflow-hidden aspect-video bg-white p-2 border border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 group/card">
-                    <div className="w-full h-full relative rounded-xl overflow-hidden transition-transform duration-700 group-hover/card:scale-[1.03]">
-                      <img src={item.img} alt={item.text} className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent opacity-90 transition-opacity duration-300 group-hover/card:opacity-100"></div>
-                      <div className="absolute bottom-0 left-0 p-8 text-white w-full transform transition-transform duration-500 group-hover/card:translate-y-[-10px]">
-                        <span className="font-mono text-xs uppercase tracking-widest text-accent mb-2 block drop-shadow-md">{item.block}</span>
-                        <span className="font-display font-bold text-2xl lg:text-3xl mb-2 block drop-shadow-md">{item.text}</span>
-                        <span className="text-sm font-light text-white/95 drop-shadow-md max-w-xs">{item.desc}</span>
+                "https://imgbly.com/ib/9GVxMsRxWIxzIyA_1776471549.jpeg",
+                "https://imgbly.com/ib/EamCSPBvSEZTPIO_1776471565.jpeg",
+                "https://imgbly.com/ib/mBDyrdiDvyFV8Dy_1776471576.jpeg",
+                "https://imgbly.com/ib/BJ7wvADw9j6jYhM_1776471615.jpeg",
+                "https://imgbly.com/ib/6mbaeiToBgox1ci_1776471638.jpeg",
+                "https://imgbly.com/ib/6gxSMN7njqCTJ48_1776471650.jpeg",
+                "https://imgbly.com/ib/rKMYyLo5UXgEg7e_1776471679.jpeg",
+                "https://imgbly.com/ib/4uLtoAXJgkc5BBC_1776471705.jpeg",
+                "https://imgbly.com/ib/60Y64DSuUm0CXHx_1776471718.jpeg",
+                "https://imgbly.com/ib/qrUqZ700ZzXzcm8_1776471730.jpeg"
+              ].map((imgLink, i) => (
+                <div key={i} style={{ animationDelay: `${i * 50}ms` }} className="shrink-0 w-[85vw] sm:w-[400px] snap-center animate-[fadeIn_0.5s_ease-out_forwards]">
+                  <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-white p-2 border border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 group/card">
+                    <div className="w-full h-full relative rounded-xl overflow-hidden transition-transform duration-700 group-hover/card:scale-[1.03] bg-background flex items-center justify-center">
+                      <img src={imgLink} alt={`Serviço ${i + 1}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
+                      <div className="absolute bottom-0 left-0 p-6 text-white w-full transform translate-y-4 transition-transform duration-500 group-hover/card:translate-y-0 opacity-0 group-hover/card:opacity-100">
+                        <span className="font-display font-bold text-xl block drop-shadow-md">Serviço Executado #{i+1}</span>
                       </div>
                     </div>
                   </div>
@@ -440,9 +448,9 @@ export default function App() {
           
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Carlos T.", via: "Google Reviews", text: "Me salvou! O ar condicionado estragou num dia muito quente. O David da Primo Refrigerações foi super rápido e honesto no diagnóstico." },
+              { name: "Carlos T.", via: "Google Reviews", text: "Me salvou! O ar condicionado estragou num dia muito quente. O Deivid da Primo Refrigerações foi super rápido e honesto no diagnóstico." },
               { name: "Mariana S.", via: "Google Reviews", text: "Fizemos a higienização completa dos aparelhos do escritório. A diferença no ar que respiramos é absurda, e as alergias melhoraram 100%!" },
-              { name: "Fabiano L.", via: "Facebook", text: "A instalação foi impecável. Equipamento alinhado, sem sujeira, sem bagunça. Muito profissional, recomendo fortemente os serviços do David." }
+              { name: "Fabiano L.", via: "Facebook", text: "A instalação foi impecável. Equipamento alinhado, sem sujeira, sem bagunça. Muito profissional, recomendo fortemente os serviços do Deivid." }
             ].map((review, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-md h-full flex flex-col justify-between">
@@ -694,7 +702,7 @@ export default function App() {
                 </div>
                 <span className="font-display font-bold text-xl">Primo Refrigerações</span>
               </div>
-              <p className="text-white/60 mb-6 font-light">Especialistas garantindo a instalação, manutenção e higienização para o seu conforto térmico e bem-estar, com a qualidade do David.</p>
+              <p className="text-white/60 mb-6 font-light">Especialistas garantindo a instalação, manutenção e higienização para o seu conforto térmico e bem-estar, com a qualidade do Deivid.</p>
               <div className="flex items-center gap-4">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors"><Instagram size={18} /></a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors"><Facebook size={18} /></a>
