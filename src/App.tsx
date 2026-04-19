@@ -7,6 +7,7 @@ import {
   ArrowRight, Clock, ChevronLeft, ChevronRight,
   Camera
 } from 'lucide-react';
+import apresentacaoVideo from './assets/apresentacao.mp4';
 
 const PHONE = '553492434778';
 const WP_LINK = `https://wa.me/${PHONE}?text=${encodeURIComponent('Olá, Deivid! Acessei o site da Primo Refrigerações e gostaria de solicitar um orçamento.')}`;
@@ -234,7 +235,7 @@ export default function App() {
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
                   <video 
-                    src="/apresentacao.mp4" 
+                    src={apresentacaoVideo} 
                     autoPlay 
                     loop 
                     muted 
@@ -309,13 +310,8 @@ export default function App() {
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 group relative overflow-hidden h-full flex flex-col backdrop-blur-sm hover:border-accent/40">
                   {/* Hover cyan line */}
                   <div className="absolute top-0 left-0 w-0 h-[2px] bg-accent transition-all duration-700 ease-out group-hover:w-full z-10" />
-                  
-                  <div className="w-full h-32 bg-[#0A192F]/60 border border-dashed border-white/30 rounded-xl mb-6 flex items-center justify-center text-white/80 font-mono text-sm text-center px-4 relative overflow-hidden group-hover:border-accent/50 transition-colors">
-                    <span className="absolute top-2 left-2 text-[10px] opacity-80">CAM_0{i + 1}</span>
-                    &lt; Visualização: {svc.title.toLowerCase()} /&gt;
-                  </div>
 
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-4 mb-4 mt-2">
                     <div className="w-12 h-12 bg-white/10 rounded-xl border border-white/5 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-white group-hover:text-secondary transition-all duration-500 shrink-0">
                       <svc.icon size={22} strokeWidth={1.5} />
                     </div>
@@ -490,7 +486,7 @@ export default function App() {
               </div>
               <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-6">Área de Cobertura</h2>
               <p className="font-sans text-lg text-white/80 mb-8 max-w-md">
-                Atuamos em toda a região de <strong className="text-white font-bold">Uberlândia</strong>, oferecendo deslocamento ágil para garantir a climatização quando você mais precisa.
+                Atuamos em <strong className="text-white font-bold">Uberlândia e região</strong>, oferecendo deslocamento ágil para garantir a climatização quando você mais precisa.
               </p>
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full font-medium text-white shadow-sm backdrop-blur-md">
                 <CheckCircle2 size={20} className="text-accent" /> Serviço Local Prioritário
@@ -505,7 +501,7 @@ export default function App() {
                          <div className="w-24 h-24 bg-accent/20 rounded-full animate-ping absolute" />
                          <div className="w-12 h-12 bg-accent/40 rounded-full absolute" />
                          <MapPin size={36} className="text-accent relative z-10 drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]" fill="#0A192F" />
-                         <span className="font-display font-bold text-white mt-2 relative z-10 bg-white/10 px-3 py-1 rounded backdrop-blur-md border border-white/20">Uberlândia-MG</span>
+                         <span className="font-display font-bold text-white mt-2 relative z-10 bg-white/10 px-3 py-1 text-sm rounded backdrop-blur-md border border-white/20">Uberlândia e Região</span>
                       </div>
                    </div>
                </div>
