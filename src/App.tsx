@@ -7,7 +7,6 @@ import {
   ArrowRight, Clock, ChevronLeft, ChevronRight,
   Camera
 } from 'lucide-react';
-import apresentacaoVideo from './assets/apresentacao.mp4';
 
 const PHONE = '553492434778';
 const WP_LINK = `https://wa.me/${PHONE}?text=${encodeURIComponent('Olá, Deivid! Acessei o site da Primo Refrigerações e gostaria de solicitar um orçamento.')}`;
@@ -235,7 +234,7 @@ export default function App() {
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
                   <video 
-                    src={apresentacaoVideo} 
+                    src="/apresentacao.mp4" 
                     autoPlay 
                     loop 
                     muted 
