@@ -5,7 +5,7 @@ import {
   ThermometerSnowflake, Droplets, Star, MapPin, 
   MessageCircle, Phone, Instagram, Facebook, Send,
   ArrowRight, Clock, ChevronLeft, ChevronRight,
-  Camera, Play, Zap, AlertTriangle, Wind
+  Camera, Play, Zap, AlertTriangle, Wind, Volume2, VolumeX
 } from 'lucide-react';
 
 const PHONE = '553492434778';
@@ -34,6 +34,7 @@ const SignatureLine = () => (
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
   const galleryRef = useRef<HTMLDivElement>(null);
 
   const scrollGallery = (direction: 'left' | 'right') => {
@@ -233,25 +234,42 @@ export default function App() {
                 <motion.div 
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
-                  <div className="w-full h-full relative z-30">
+                  <div className="w-full h-full relative z-30 group/video-container">
                     <iframe 
-                      src="https://www.youtube.com/embed/sUqx46WyFzg?autoplay=1&loop=1&mute=1&playlist=sUqx46WyFzg&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
+                      src={`https://www.youtube.com/embed/sUqx46WyFzg?autoplay=1&loop=1&mute=${isVideoMuted ? 1 : 0}&playlist=sUqx46WyFzg&controls=${isVideoMuted ? 0 : 1}&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3`}
                       title="Apresentação Primo Refrigerações"
-                      className="w-[180%] h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none scale-105"
+                      className="w-[180%] h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-105 transition-all duration-300"
+                      style={{ pointerEvents: isVideoMuted ? 'none' : 'auto' }}
                       frameBorder="0" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                       allowFullScreen 
                     />
+                    
+                    {/* Unmute Button Overlay */}
+                    {isVideoMuted && (
+                      <div className="absolute inset-x-0 bottom-8 flex justify-center z-40 pointer-events-auto">
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setIsVideoMuted(false);
+                          }}
+                          className="bg-white/90 text-primary px-5 py-2.5 rounded-full font-bold text-sm shadow-[0_10px_20px_rgba(0,0,0,0.3)] flex items-center gap-2 hover:bg-white hover:scale-105 transition-all backdrop-blur-md border border-primary/10 animate-[pulse-glow_2s_ease-in-out_infinite]"
+                        >
+                          <Volume2 size={20} className="text-secondary" />
+                          Toque para ouvir
+                        </button>
+                      </div>
+                    )}
                   </div>
                   {/* Subtle gradient overlay to make video look more premium */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent pointer-events-none" />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent pointer-events-none transition-opacity duration-300 ${!isVideoMuted && 'opacity-0'}`} />
                 </motion.div>
 
                 {/* FLOATING TRUST BADGE */}
                 <motion.div 
                   animate={{ y: [-10, 10, -10] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -left-6 z-30 bg-white/90 backdrop-blur-xl shadow-[0_20px_40px_rgb(0,0,0,0.15)] border border-white rounded-[1.5rem] p-5 flex items-center gap-4 hover:scale-105 transition-transform"
+                  className="absolute -bottom-14 -left-4 sm:-left-8 z-30 bg-white/90 backdrop-blur-xl shadow-[0_20px_40px_rgb(0,0,0,0.15)] border border-white rounded-[1.5rem] p-5 flex items-center gap-4 hover:scale-105 transition-transform"
                 >
                   <div className="w-14 h-14 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white shadow-inner">
                     <Droplets size={26} strokeWidth={2} />
