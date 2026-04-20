@@ -233,7 +233,7 @@ export default function App() {
                 <motion.div 
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
-                  {/* Vídeo atualizado: Agora puxa "apresentacao.mp4" (sem acentos e perfeitamente compatível) */}
+                  {/* TRUQUE PARA FORÇAR O BOTÃO DE COMMIT SALVAR O SITE */}
                   <video 
                     key="apresentacao-video"
                     autoPlay 
