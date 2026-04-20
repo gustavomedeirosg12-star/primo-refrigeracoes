@@ -402,6 +402,8 @@ export default function App() {
 
             <div ref={galleryRef} className="flex gap-6 w-full overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth hide-scroll px-2">
               {[
+                "/extra1",
+                "/extra2",
                 "https://imgbly.com/ib/9GVxMsRxWIxzIyA_1776471549.jpeg",
                 "https://imgbly.com/ib/EamCSPBvSEZTPIO_1776471565.jpeg",
                 "https://imgbly.com/ib/mBDyrdiDvyFV8Dy_1776471576.jpeg",
@@ -581,7 +583,7 @@ export default function App() {
                   </div>
                   <div>
                     <strong className="block font-display text-xl text-primary mb-1">Localização Base</strong>
-                    <span className="text-text/70">Uberlândia - MG</span>
+                    <span className="text-text/70">Rua Ibrantina Pena 219<br/>Shopping Park, Uberlândia - MG</span>
                   </div>
                 </div>
 
@@ -730,7 +732,7 @@ export default function App() {
               <ul className="space-y-4 text-white/60">
                 <li><a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a></li>
                 <li>CNPJ: 00.000.000/0001-00</li>
-                <li>Uberlândia - MG</li>
+                <li>Rua Ibrantina Pena 219<br/>Shopping Park, Uberlândia - MG</li>
               </ul>
             </div>
           </div>
