@@ -5,7 +5,7 @@ import {
   ThermometerSnowflake, Droplets, Star, MapPin, 
   MessageCircle, Phone, Instagram, Facebook, Send,
   ArrowRight, Clock, ChevronLeft, ChevronRight,
-  Camera
+  Camera, Play
 } from 'lucide-react';
 
 const PHONE = '553492434778';
@@ -233,18 +233,16 @@ export default function App() {
                 <motion.div 
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
-                  {/* TRUQUE PARA FORÇAR O BOTÃO DE COMMIT. VEJA O SITE AGORA. */}
-                  <video 
-                    key="apresentacao-video"
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-full object-cover scale-105 group-hover/video:scale-100 transition-transform duration-700"
-                  >
-                    <source src="/apresentacao.mp4" type="video/mp4" />
-                    Seu navegador não suporta vídeos.
-                  </video>
+                  <div className="w-full h-full relative z-30">
+                    <iframe 
+                      src="https://www.youtube.com/embed/sUqx46WyFzg?autoplay=1&loop=1&mute=1&playlist=sUqx46WyFzg&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
+                      title="Apresentação Primo Refrigerações"
+                      className="w-[180%] h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none scale-105"
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen 
+                    />
+                  </div>
                   {/* Subtle gradient overlay to make video look more premium */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent pointer-events-none" />
                 </motion.div>
@@ -403,12 +401,12 @@ export default function App() {
 
             <div ref={galleryRef} className="flex gap-6 w-full overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth hide-scroll px-2">
               {[
-                { src: "/depoimento1.jpg" },
-                { src: "/depoimento2.jpg" },
-                { src: "https://imgbly.com/ib/9GVxMsRxWIxzIyA_1776471549.jpeg" },
-                { src: "https://imgbly.com/ib/EamCSPBvSEZTPIO_1776471565.jpeg" },
-                { src: "https://imgbly.com/ib/mBDyrdiDvyFV8Dy_1776471576.jpeg" },
-                { src: "https://imgbly.com/ib/BJ7wvADw9j6jYhM_1776471615.jpeg" },
+                { src: "https://69d917505386887646d2db3b.imgix.net/ba97d63a-bff4-477f-b30f-ce874921cd8a.jfif" },
+                { src: "https://69d917505386887646d2db3b.imgix.net/9547a087-c0d2-4203-a9c8-28aeb946abfe.jfif" },
+                { src: "/WhatsApp Image 2024-04-19 at 20.45.10.jpeg", fallback: "https://imgbly.com/ib/mBDyrdiDvyFV8Dy_1776471576.jpeg" },
+                { src: "/WhatsApp Image 2024-04-19 at 20.45.11.jpeg", fallback: "https://imgbly.com/ib/BJ7wvADw9j6jYhM_1776471615.jpeg" },
+                { src: "/depoimento1.jpg", fallback: "https://imgbly.com/ib/9GVxMsRxWIxzIyA_1776471549.jpeg" },
+                { src: "/depoimento2.jpg", fallback: "https://imgbly.com/ib/EamCSPBvSEZTPIO_1776471565.jpeg" },
                 { src: "https://imgbly.com/ib/6mbaeiToBgox1ci_1776471638.jpeg" },
                 { src: "https://imgbly.com/ib/6gxSMN7njqCTJ48_1776471650.jpeg" },
                 { src: "https://imgbly.com/ib/rKMYyLo5UXgEg7e_1776471679.jpeg" },
@@ -420,8 +418,18 @@ export default function App() {
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-white p-2 border border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 group/card">
                     <div className="w-full h-full relative rounded-xl overflow-hidden transition-transform duration-700 group-hover/card:scale-[1.03] bg-background flex items-center justify-center">
                       <picture>
-                        {imgItem.fallback && <source srcSet={imgItem.src} />}
-                        <img src={imgItem.fallback || imgItem.src} alt={`Serviço ${i + 1}`} className="w-full h-full object-cover absolute inset-0" referrerPolicy="no-referrer" loading="lazy" />
+                        <img 
+                          src={imgItem.src} 
+                          onError={(e) => {
+                            if (imgItem.fallback) {
+                              e.currentTarget.src = imgItem.fallback;
+                            }
+                          }}
+                          alt={`Serviço ${i + 1}`} 
+                          className="w-full h-full object-cover absolute inset-0" 
+                          referrerPolicy="no-referrer" 
+                          loading="lazy" 
+                        />
                       </picture>
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
                       <div className="absolute bottom-0 left-0 p-6 text-white w-full transform translate-y-4 transition-transform duration-500 group-hover/card:translate-y-0 opacity-0 group-hover/card:opacity-100">
