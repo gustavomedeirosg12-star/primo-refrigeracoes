@@ -235,13 +235,14 @@ export default function App() {
                 >
                   {/* Vídeo atualizado: Agora puxa "apresentacao.mp4" (sem acentos e perfeitamente compatível) */}
                   <video 
-                    src="/apresentacao.mp4"
+                    key="apresentacao-video"
                     autoPlay 
                     loop 
                     muted 
                     playsInline 
                     className="w-full h-full object-cover scale-105 group-hover/video:scale-100 transition-transform duration-700"
                   >
+                    <source src="/apresentacao.mp4" type="video/mp4" />
                     Seu navegador não suporta vídeos.
                   </video>
                   {/* Subtle gradient overlay to make video look more premium */}
@@ -402,8 +403,8 @@ export default function App() {
 
             <div ref={galleryRef} className="flex gap-6 w-full overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth hide-scroll px-2">
               {[
-                { src: "/depoimento1.jpg", fallback: "/depoimento1" },
-                { src: "/depoimento2.jpg", fallback: "/depoimento2" },
+                { src: "/depoimento1.jpg" },
+                { src: "/depoimento2.jpg" },
                 { src: "https://imgbly.com/ib/9GVxMsRxWIxzIyA_1776471549.jpeg" },
                 { src: "https://imgbly.com/ib/EamCSPBvSEZTPIO_1776471565.jpeg" },
                 { src: "https://imgbly.com/ib/mBDyrdiDvyFV8Dy_1776471576.jpeg" },
