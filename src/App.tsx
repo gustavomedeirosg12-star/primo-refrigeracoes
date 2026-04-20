@@ -233,16 +233,15 @@ export default function App() {
                 <motion.div 
                   className="w-full h-full relative rounded-[2rem] overflow-hidden bg-primary border border-secondary/20 flex flex-col items-center justify-center animate-float z-20 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] group/video"
                 >
-                  {/* Solução recomendada: Vídeo direto na pasta /public. Adicionado versão com acentuação para cobrir o upload direto do GitHub. */}
+                  {/* Vídeo atualizado: Agora puxa "apresentacao.mp4" (sem acentos e perfeitamente compatível) */}
                   <video 
+                    src="/apresentacao.mp4"
                     autoPlay 
                     loop 
                     muted 
                     playsInline 
                     className="w-full h-full object-cover scale-105 group-hover/video:scale-100 transition-transform duration-700"
                   >
-                    <source src="/apresentação-oficial.mp4" type="video/mp4" />
-                    <source src="/apresentacao-oficial.mp4" type="video/mp4" />
                     Seu navegador não suporta vídeos.
                   </video>
                   {/* Subtle gradient overlay to make video look more premium */}
