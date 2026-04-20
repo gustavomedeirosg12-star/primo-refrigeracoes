@@ -5,7 +5,7 @@ import {
   ThermometerSnowflake, Droplets, Star, MapPin, 
   MessageCircle, Phone, Instagram, Facebook, Send,
   ArrowRight, Clock, ChevronLeft, ChevronRight,
-  Camera, Play
+  Camera, Play, Zap, AlertTriangle, Wind
 } from 'lucide-react';
 
 const PHONE = '553492434778';
@@ -282,6 +282,82 @@ export default function App() {
               <span className="w-2 h-2 rounded-full bg-accent/30"></span>
             </span>
           ))}
+        </div>
+      </section>
+
+      {/* SEÇÃO DE SINTOMAS / DORES */}
+      <section className="py-24 relative overflow-hidden bg-background border-t border-primary/5">
+        {/* Background decorations */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] opacity-70 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] opacity-70 translate-y-1/2 -translate-x-1/3 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-16">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4 block">Alerta de Risco</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mt-6 mb-6 leading-tight">
+              Seu Ar Condicionado está dando <span className="text-secondary italic">Sinais de Socorro?</span>
+            </h2>
+            <p className="text-primary/70 text-lg">
+              Não espere o equipamento queimar. Se você notar algum destes sintomas na sua casa ou empresa, é hora de agir agora:
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1 */}
+            <FadeIn delay={0} className="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_-10px_rgba(0,90,156,0.08)] border border-primary/5 hover:border-accent/30 hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-primary group-hover:text-accent transition-colors duration-500">
+                <AlertTriangle size={80} />
+              </div>
+              <div className="w-16 h-16 bg-blue-50 text-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-sm relative z-10">
+                <Droplets size={32} />
+              </div>
+              <h3 className="text-xl font-display font-bold text-primary mb-3 relative z-10">Pingando Água</h3>
+              <p className="text-primary/60 text-sm leading-relaxed relative z-10">Vazamentos para dentro do ambiente indicam dreno entupido ou falta de manutenção. Grande risco de estragar paredes, móveis e eletrônicos.</p>
+            </FadeIn>
+
+            {/* Card 2 */}
+            <FadeIn delay={0.1} className="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_-10px_rgba(0,90,156,0.08)] border border-primary/5 hover:border-accent/30 hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-primary group-hover:text-accent transition-colors duration-500">
+                <AlertTriangle size={80} />
+              </div>
+              <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 shadow-sm relative z-10">
+                <ThermometerSnowflake size={32} />
+              </div>
+              <h3 className="text-xl font-display font-bold text-primary mb-3 relative z-10">Não Gela Mais</h3>
+              <p className="text-primary/60 text-sm leading-relaxed relative z-10">Você abaixa a temperatura para 18ºC mas o ambiente continua quente? Pode haver fuga de gás ou bloqueio total da vazão por excesso de sujeira.</p>
+            </FadeIn>
+
+            {/* Card 3 */}
+            <FadeIn delay={0.2} className="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_-10px_rgba(0,90,156,0.08)] border border-primary/5 hover:border-accent/30 hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-primary group-hover:text-accent transition-colors duration-500">
+                <AlertTriangle size={80} />
+              </div>
+              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 shadow-sm relative z-10">
+                <Wind size={32} />
+              </div>
+              <h3 className="text-xl font-display font-bold text-primary mb-3 relative z-10">Mau Cheiro ou Poeira</h3>
+              <p className="text-primary/60 text-sm leading-relaxed relative z-10">Cheiro de mofo ou espirros frequentes ao ligar. Seu ar está espalhando fungos, bactérias e ácaros diretamente no ar que você e sua família respiram.</p>
+            </FadeIn>
+
+            {/* Card 4 */}
+            <FadeIn delay={0.3} className="bg-white rounded-[2rem] p-8 shadow-[0_10px_40px_-10px_rgba(0,90,156,0.08)] border border-primary/5 hover:border-accent/30 hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-primary group-hover:text-accent transition-colors duration-500">
+                <AlertTriangle size={80} />
+              </div>
+              <div className="w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500 shadow-sm relative z-10">
+                <Zap size={32} />
+              </div>
+              <h3 className="text-xl font-display font-bold text-primary mb-3 relative z-10">Conta de Luz Alta</h3>
+              <p className="text-primary/60 text-sm leading-relaxed relative z-10">Um ar condicionado sujo ou trabalhando com defeito força o motor o dobro do tempo para tentar gelar, podendo consumir até 40% a mais de energia elétrica.</p>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.4} className="mt-16 text-center">
+            <a href={WP_LINK} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 bg-secondary text-white font-medium py-4 px-10 rounded-full hover:bg-primary transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,90,156,0.3)] hover:-translate-y-1">
+              Meu ar está assim, quero agendar visita
+              <ArrowRight size={20} />
+            </a>
+          </FadeIn>
         </div>
       </section>
 
