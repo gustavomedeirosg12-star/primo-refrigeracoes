@@ -837,7 +837,7 @@ export default function App() {
               <h4 className="font-display font-bold mb-6 text-lg">Informações Legais</h4>
               <ul className="space-y-4 text-white/60">
                 <li><a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a></li>
-                <li>CNPJ: 00.000.000/0001-00</li>
+                <li>CNPJ: 52.867.528/0001-66</li>
                 <li>Rua Ibrantina Pena 219<br/>Shopping Park, Uberlândia - MG</li>
               </ul>
             </div>
